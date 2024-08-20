@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./../assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="./../assets/css/style.css" />
+    <title>Welcome</title>
+  </head>
+  <body>
+    <div class="login-wrapper h100 bg-black">
+      <div class="container-fluid sticky">
+        <div class="top-nav">
+          <ul class="links">
+            <li>
+              <a href="./welcome.html">
+                <img src="./../assets/images/home.png" />
+                Home</a
+              >
+            </li>
+            <li>
+              <a href="" data-bs-toggle="modal" data-bs-target="#login">
+                <img src="./../assets/images/home.png" />
+                Login</a
+              >
+            </li>
+
+            <li>
+              <a href="">
+                <img src="./../assets/images/about.png" />
+                About
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <img src="./../assets/images/info.png" />
+                Help
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal fade" id="login" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <div class="close" data-bs-dismiss="modal">
+              <img src="./../assets/images/close.png" alt="" />
+            </div>
+
+            <div class="modal-body">
+              <div class="subtitle">Login</div>
+              <div class="logo">
+                <img src="./../assets/images/logo.png" alt="" />
+              </div>
+              <div class="title">Welcome to StegSec</div>
+              <div class="text mb-24">Please enter your details to Login</div>
+              <div class="input-wrapper">
+                <img
+                  src="./../assets/images/email.png"
+                  alt=""
+                  class="img-left"
+                />
+                <input type="text" class="input" placeholder="Email" />
+              </div>
+              <div class="input-wrapper">
+                <img
+                  src="./../assets/images/password.png"
+                  alt=""
+                  class="img-left"
+                />
+                <input type="text" class="input" placeholder="Password" />
+              </div>
+              <div class="forgot-password">
+                <a href="">Forgot Password?</a>
+              </div>
+              <button
+                onclick="goToSelectionPage()"
+                class="button-main w-100 mb-24"
+              >
+                Login
+              </button>
+              <div class="text-center mb-24 or-login">Or Login Using</div>
+              <button class="social-button mb-24 w-100">
+                <img src="./../assets/images/google.png" alt="" />
+                Google
+              </button>
+              <div class="text-center or-login">
+                <a href="">Don’t have an account? Signup here</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="./selection.html" id="section-page"></a>
+    <script src="./../assets/js/bootstrap.js"></script>
+    <script src="./../renderer.js"></script>
+  </body>
+</html>

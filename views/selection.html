@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./../assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="./../assets/css/style.css" />
+    <title>Selection</title>
+  </head>
+  <body>
+    <div class="selection-wrapper h100 bg-black">
+      <div class="modal fade" id="hide-data" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <div class="close" data-bs-dismiss="modal">
+              <img src="./../assets/images/close.png" alt="" />
+            </div>
+
+            <div class="modal-body">
+              <div class="subtitle">Login</div>
+
+              <div class="title17">Hide File</div>
+              <div class="body-text color-white mb4">
+                Select the file to be hidden
+              </div>
+              <div class="file-wrapper mb-12">
+                <input type="file" />
+                <img src="./../assets/images/upload.png" alt="" />
+                <div class="body-text text-center">Upload File here</div>
+              </div>
+              <div class="title17">Cover Photo</div>
+              <div class="body-text color-white mb-8">
+                Please select the cover image from the following images, or
+                upgrade to the pro version to use a custom file
+              </div>
+              <div class="file-images-wrapper mb-8">
+                <div class="image-wrapper">
+                  <img src="./../assets/images/img1.png" alt="" />
+                </div>
+                <div class="image-wrapper">
+                  <img src="./../assets/images/img2.png" alt="" />
+                </div>
+              </div>
+
+              <label class="mb-8" for="">The Steg Operation</label>
+              <div class="input-wrapper mb-16">
+                <input
+                  type="text"
+                  class="input no-logo"
+                  placeholder="Hide Data in Image"
+                />
+              </div>
+              <label class="mb-8" for="">Password</label>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  class="input no-logo"
+                  placeholder="Enter password here"
+                />
+              </div>
+
+              <button class="button-main w-100 mb-24">Hide</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid sticky">
+        <div class="top-nav">
+          <ul class="links">
+            <li>
+              <a href="./welcome.html">
+                <img src="./../assets/images/home.png" />
+                Home</a
+              >
+            </li>
+
+            <li>
+              <a href="">
+                <img src="./../assets/images/about.png" />
+                About
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <img src="./../assets/images/info.png" />
+                Help
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-center">
+        <div class="selection-inner">
+          <div class="logo">
+            <img src="./../assets/images/logo.png" alt="" />
+          </div>
+          <div class="title-medium text-center">Welcome to StegSec</div>
+          <div class="body-text text-center mb-32 color-white">
+            Please review the help section for supported file type & basic
+            options
+          </div>
+          <button
+            class="button-main w-100 mb-12"
+            data-bs-toggle="modal"
+            data-bs-target="#hide-data"
+          >
+            Hide Data
+          </button>
+          <button class="button-main w-100 mb-12">Extract Data</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./../assets/js/bootstrap.js"></script>
+  </body>
+</html>

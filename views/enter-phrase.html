@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+  
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Password Manager</title>
+</head>
+<body>
+
+
+
+  <!-- Forgot Modal  -->
+  <div class="modal fade" id="forgot-modal" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dark modal-dialog-centered">
+      <div class="modal-content">
+        <div class="close" data-bs-dismiss="modal">
+          <img src="assets/images/close.png" alt="">
+        </div>
+        
+        <div class="modal-body">
+          <div class="subtitle">
+            Question
+          </div>
+       
+          
+          <div class="title-small text-center color-white mb-16">
+            Your passphrase is the answer to the <br> question.
+           
+          </div>
+          <div class="title-small text-center color-white mb-32">
+            What is your mother’s maiden name?
+           
+          </div>
+          
+        
+         
+          <button class="button-main w-100" data-bs-dismiss="modal">
+            Done
+           </button>
+          
+        
+         
+          
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <!-- History Model  -->
+  <div class="modal fade" id="history-modal" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dark modal-dialog-centered dark-padding-10">
+      <div class="modal-content">
+        <div class="close" data-bs-dismiss="modal">
+          <img src="assets/images/close.png" alt="">
+        </div>
+        
+        <div class="modal-body">
+          <div class="subtitle">
+            Password History
+          </div>
+          
+           <div class="dark-inner">
+            <div class="title">
+              Cover Path
+            </div>
+            <div class="subtitle mb-12">
+              <a href="">new_imageadadadahfiuwhf...d.png</a>
+            </div>
+            <div class="title">
+              Password
+            </div>
+            <div class="subtitle mb-12">
+             Tuesday
+            </div>
+
+            <div class="title">
+            Hide File
+            </div>
+            <div class="subtitle mb-12">
+              <a href="">C:/Users/JayoutiusEvent/Document/globalheven.txt</a>
+            </div>
+            <div class="title">
+             Time
+            </div>
+            <div class="subtitle mb-12">
+              2024-05-28 10:22:28
+            </div>
+           </div>
+        
+        
+         
+          
+        </div>
+       
+      </div>
+    </div>
+  </div>
+    <div class="hide-wrapper h100 bg-black">
+     
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2">
+            <div class="side-bar">
+              <div class="logo">
+                <img src="assets/images/logo.png" alt="">
+              </div>
+              <div class="inner">
+                <div class="menu-wrapper">
+                  <a href=""> <img src="assets/images/mhome.png" alt=""> Home</a>
+                  <a href=""> <img src="assets/images/mabout.png" alt=""> About</a>
+                  <a href=""> <img src="assets/images/mhelp.png" alt=""> Help</a>
+                  <a href="" > <img src="assets/images/meye.png" alt=""> Hide Data</a>
+                  <a href="" > <img src="assets/images/mfolder.png" alt=""> Extract Data</a>
+                  <a href=""> <img src="assets/images/mprofile.png" alt=""> Profile</a>
+                  <a href=""> <img src="assets/images/mupload.png" alt=""> Upgrade</a>
+                  <a href="" class="active"> <img src="assets/images/mlock.png" alt=""> Password Manager</a>
+                </div>
+               <a class="logout">
+                <img src="assets/images/logout.png" alt="">Logout
+               </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-10">
+            <div class="right-container">
+              <div class="top-data light-dark mb-16">Password Manager</div>
+              <div class="light-dark content-center border-12">
+                <div class="max-480 inner-data py-5">
+                   <div class="logo">
+                    <img src="assets/images/logo.png" alt="">
+                   </div>
+                   <div class="title-small text-center mb-32 color-white">
+                    Enter phrase and get history
+                   </div>
+                   
+                   
+                   
+                   <div class="input-wrapper mb-24">
+                   
+                    <input type="text" class="input no-logo text-center" placeholder="Enter here">
+                  </div>
+                  
+                   <button class="button-main w-100 mb-100" data-bs-toggle="modal" data-bs-target="#history-modal">
+                    Get History
+                   </button>
+                   <div class="text-center">
+                    <a href="" class="forgot-phrase" data-bs-toggle="modal" data-bs-target="#forgot-modal">Forgot Passphrase</a>
+                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    
+    </div>
+    <script src="js/bootstrap.js"></script>
+    </body>
+</html>
