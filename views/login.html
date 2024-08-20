@@ -20,7 +20,12 @@
               >
             </li>
             <li>
-              <a href="" data-bs-toggle="modal" data-bs-target="#login">
+              <a
+                href="javascript:void(0)"
+                id="login-modal"
+                data-bs-toggle="modal"
+                data-bs-target="#login"
+              >
                 <img src="./../assets/images/home.png" />
                 Login</a
               >
@@ -94,7 +99,13 @@
       </div>
     </div>
     <a href="./selection.html" id="section-page"></a>
-    <script src="./../assets/js/bootstrap.js"></script>
+    <script src="./../assets/js/jquery.min.js"></script>
+    <script src="./../assets/js/bootstrap.min.js"></script>
     <script src="./../renderer.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#login").modal("toggle");
+      });
+    </script>
   </body>
 </html>

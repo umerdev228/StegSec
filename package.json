@@ -5,14 +5,14 @@
   "main": "main.js",
   "author": {
     "name": "Muhammad Umer",
-     "email": "umerdev228@gmail.com"
-    },
+    "email": "umerdev228@gmail.com"
+  },
   "scripts": {
     "start": "electron .",
     "postinstall": "electron-rebuild",
     "build": "electron-builder"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/umerdev228/secminds",
   "keywords": [
     "Electron",
     "quick",

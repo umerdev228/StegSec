@@ -9,3 +9,6 @@
 function goToSelectionPage() {
     document.getElementById('section-page').click()
 }
+function goToHidePage() {
+    window.location.href = "./hide-data.html";
+}
