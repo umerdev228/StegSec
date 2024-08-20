@@ -12,3 +12,6 @@ function goToSelectionPage() {
 function goToHidePage() {
     window.location.href = "./hide-data.html";
 }
+function goToExtractData() {
+    window.location.href = "./extract-data.html";
+}
