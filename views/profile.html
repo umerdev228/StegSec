@@ -50,7 +50,7 @@
                     Manager</a
                   >
                 </div>
-                <a class="logout">
+                <a href="javascript:void(0)" onclick="logout()" class="logout">
                   <img src="./../assets/images/logout.png" alt="" />Logout
                 </a>
               </div>
@@ -64,37 +64,64 @@
                 <div class="col-6">
                   <div class="light-dark content-center border-12">
                     <div class="max-480 inner-data py-4">
-                      <div class="title-20 text-center mb-16">
-                        Edit Profile Details
-                      </div>
-                      <div class="logo mb-32">
-                        <img src="./../assets/images/priceb.png" alt="" />
-                      </div>
+                      <form id="profileForm" method="POST">
+                        <div class="title-20 text-center mb-16">
+                          Edit Profile Details
+                        </div>
+                        <div class="logo mb-32">
+                          <img src="./../assets/images/priceb.png" alt="" />
+                        </div>
 
-                      <label class="mb-8" for="">Name</label>
-                      <div class="input-wrapper mb-16">
-                        <input
-                          type="text"
-                          class="input no-logo"
-                          placeholder="Jhone Doe"
-                        />
-                      </div>
-                      <label class="mb-8" for="">Email</label>
-                      <div class="input-wrapper mb-24">
-                        <input
-                          type="text"
-                          class="input no-logo"
-                          placeholder="Jhone@gmail.com"
-                        />
-                      </div>
+                        <label for="fname" class="mb-8" for=""
+                          >First Name</label
+                        >
+                        <div class="input-wrapper mb-16">
+                          <input
+                            type="text"
+                            name="fname"
+                            id="fname"
+                            class="input no-logo"
+                            placeholder="John"
+                          />
+                        </div>
 
-                      <button
-                        class="button-main w-100"
-                        data-bs-toggle="modal"
-                        data-bs-target="#done-modal"
-                      >
-                        Update
-                      </button>
+                        <label for="lname" class="mb-8" for="">Last Name</label>
+                        <div class="input-wrapper mb-16">
+                          <input
+                            type="text"
+                            name="lname"
+                            id="lname"
+                            class="input no-logo"
+                            placeholder="Doe"
+                          />
+                        </div>
+                        <label for="email" class="mb-8" for="">Email</label>
+                        <div class="input-wrapper mb-24">
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="input no-logo"
+                            placeholder="Jhone@gmail.com"
+                          />
+                        </div>
+
+                        <label for="mobile_phone" class="mb-8" for=""
+                          >Phone</label
+                        >
+                        <div class="input-wrapper mb-24">
+                          <input
+                            type="tel"
+                            name="mobile_phone"
+                            id="mobile_phone"
+                            class="input no-logo"
+                            placeholder=""
+                          />
+                        </div>
+                        <button class="button-main w-100" type="submit">
+                          Update
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -145,9 +172,39 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="modal fade"
+          id="messageModal"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dark modal-dialog-centered">
+            <div class="modal-content">
+              <div class="close" data-bs-dismiss="modal">
+                <img src="./../assets/images/close.png" alt="" />
+              </div>
+
+              <div class="modal-body">
+                <div class="subtitle">Done</div>
+                <div class="done-logo">
+                  <img src="./../assets/images/done.png" alt="" />
+                </div>
+                <div class="title-medium text-center">Process Complete</div>
+                <div class="body-text text-center color-white mb-32">
+                  Profile Updated Successfully
+                </div>
+
+                <button class="button-main w-100 mb-24">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <script src="./../assets/js/bootstrap.js"></script>
+    <script src="./../renderer.js"></script>
+    <script src="./../renderer/profile.js"></script>
   </body>
 </html>

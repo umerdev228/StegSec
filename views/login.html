@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="./../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="./../assets/css/style.css" />
-    <title>Welcome</title>
+    <title>Authentication</title>
   </head>
   <body>
     <div class="login-wrapper h100 bg-black">
@@ -46,53 +46,371 @@
           </ul>
         </div>
       </div>
+
       <div class="modal fade" id="login" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dark modal-dialog-centered">
           <div class="modal-content">
-            <div class="close" data-bs-dismiss="modal">
-              <img src="./../assets/images/close.png" alt="" />
-            </div>
+            <form id="loginForm" method="POST">
+              <div class="close" data-bs-dismiss="modal">
+                <img src="./../assets/images/close.png" alt="" />
+              </div>
 
-            <div class="modal-body">
-              <div class="subtitle">Login</div>
-              <div class="logo">
-                <img src="./../assets/images/logo.png" alt="" />
+              <div class="modal-body">
+                <div class="subtitle">Login</div>
+                <div class="logo">
+                  <img src="./../assets/images/logo.png" alt="" />
+                </div>
+                <div class="title">Welcome to StegSec</div>
+                <div class="text mb-24">Please enter your details to Login</div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/email.png"
+                    alt=""
+                    class="img-left"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="input"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/password.png"
+                    alt=""
+                    class="img-left"
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="input"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="forgot-password">
+                  <a href="javascript:void(0)" onclick="passwordResetModal()"
+                    >Forgot Password?</a
+                  >
+                </div>
+                <button type="submit" class="button-main w-100 mb-24">
+                  Login
+                </button>
+                <div class="text-center mb-24 or-login">Or Login Using</div>
+                <button class="social-button mb-24 w-100">
+                  <img src="./../assets/images/google.png" alt="" />
+                  Google
+                </button>
+                <div class="text-center or-login">
+                  <a href="javascript:void(0)" onclick="showSignUpModal()"
+                    >Don’t have an account? Signup here</a
+                  >
+                </div>
               </div>
-              <div class="title">Welcome to StegSec</div>
-              <div class="text mb-24">Please enter your details to Login</div>
-              <div class="input-wrapper">
-                <img
-                  src="./../assets/images/email.png"
-                  alt=""
-                  class="img-left"
-                />
-                <input type="text" class="input" placeholder="Email" />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="signUp" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <form id="signupForm" method="POST">
+              <div class="close" data-bs-dismiss="modal">
+                <img src="./../assets/images/close.png" alt="" />
               </div>
-              <div class="input-wrapper">
-                <img
-                  src="./../assets/images/password.png"
-                  alt=""
-                  class="img-left"
-                />
-                <input type="text" class="input" placeholder="Password" />
+
+              <div class="modal-body">
+                <div class="subtitle">SignUp</div>
+                <div class="logo">
+                  <img src="./../assets/images/logo.png" alt="" />
+                </div>
+                <div class="title">Welcome to StegSec</div>
+                <div class="text mb-24">
+                  Please enter your details to signUp
+                </div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/email.png"
+                    alt=""
+                    class="img-left"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    id="signupEmail"
+                    class="input"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/password.png"
+                    alt=""
+                    class="img-left"
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    id="signupPassword"
+                    class="input"
+                    placeholder="Password"
+                  />
+                </div>
+
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/password.png"
+                    alt=""
+                    class="img-left"
+                  />
+                  <input
+                    type="password"
+                    name="password2"
+                    id="signupPassword2"
+                    class="input"
+                    placeholder="Password Confirm"
+                  />
+                </div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/email.png"
+                    alt=""
+                    class="img-left"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="signupPhone"
+                    class="input"
+                    placeholder="Phone"
+                  />
+                </div>
+                <button type="submit" class="button-main w-100 mb-24">
+                  SignUp
+                </button>
+                <div class="text-center mb-24 or-login">Or Login Using</div>
+                <button class="social-button mb-24 w-100">
+                  <img src="./../assets/images/google.png" alt="" />
+                  Google
+                </button>
+                <div class="text-center or-login">
+                  <a href="javascript:void(0)" onclick="changeModal()"
+                    >Already have account? SignIn here</a
+                  >
+                </div>
               </div>
-              <div class="forgot-password">
-                <a href="">Forgot Password?</a>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- passwordReset modal -->
+      <!-- passwordResetForm -->
+      <div
+        class="modal fade"
+        id="passwordReset"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <form id="passwordResetForm" method="POST">
+              <div class="close" data-bs-dismiss="modal">
+                <img src="./../assets/images/close.png" alt="" />
               </div>
+
+              <div class="modal-body">
+                <div class="subtitle">Password Reset</div>
+                <div class="logo">
+                  <img src="./../assets/images/logo.png" alt="" />
+                </div>
+                <div class="title">Welcome to StegSec</div>
+                <div class="text mb-24">
+                  Please enter your details to password reset
+                </div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/email.png"
+                    alt=""
+                    class="img-left"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    id="signupEmail"
+                    class="input"
+                    placeholder="Email"
+                  />
+                </div>
+
+                <button type="submit" class="button-main w-100 mb-24">
+                  Submit
+                </button>
+
+                <div class="text-center or-login">
+                  <a href="javascript:void(0)" onclick="changeModal()"
+                    >Already have account? SignIn here</a
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- passwordResetTokenCheck -->
+      <div
+        class="modal fade"
+        id="passwordResetTokenCheck"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <form id="passwordResetTokenCheckForm" method="POST">
+              <div class="close" data-bs-dismiss="modal">
+                <img src="./../assets/images/close.png" alt="" />
+              </div>
+
+              <div class="modal-body">
+                <div class="subtitle">Password Reset</div>
+                <div class="logo">
+                  <img src="./../assets/images/logo.png" alt="" />
+                </div>
+                <div class="title">Welcome to StegSec</div>
+                <div class="text mb-24">
+                  Please enter your details to password reset
+                </div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/email.png"
+                    alt=""
+                    class="img-left"
+                  />
+
+                  <input
+                    type="hidden"
+                    name="id"
+                    id="id-token"
+                    class="input"
+                    placeholder="Id"
+                  />
+
+                  <input
+                    type="text"
+                    name="token"
+                    id="token"
+                    class="input"
+                    placeholder="Token"
+                  />
+                </div>
+
+                <button type="submit" class="button-main w-100 mb-24">
+                  Submit
+                </button>
+                <div class="text-center or-login">
+                  <a href="javascript:void(0)" onclick="changeModal()"
+                    >Already have account? SignIn here</a
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- passwordUpdate -->
+      <div
+        class="modal fade"
+        id="passwordUpdate"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <form id="passwordUpdateForm" method="POST">
+              <div class="close" data-bs-dismiss="modal">
+                <img src="./../assets/images/close.png" alt="" />
+              </div>
+
+              <div class="modal-body">
+                <div class="subtitle">Password Reset</div>
+                <div class="logo">
+                  <img src="./../assets/images/logo.png" alt="" />
+                </div>
+                <div class="title">Welcome to StegSec</div>
+                <div class="text mb-24">Please enter your new password</div>
+                <div class="input-wrapper">
+                  <img
+                    src="./../assets/images/email.png"
+                    alt=""
+                    class="img-left"
+                  />
+
+                  <input
+                    type="hidden"
+                    name="id"
+                    id="id_token"
+                    class="input"
+                    placeholder="Id"
+                  />
+
+                  <input
+                    type="password"
+                    name="password"
+                    id="password-update"
+                    class="input"
+                    placeholder="Password"
+                  />
+                </div>
+
+                <button type="submit" class="button-main w-100 mb-24">
+                  Submit
+                </button>
+                <div class="text-center or-login">
+                  <a href="javascript:void(0)" onclick="changeModal()"
+                    >Already have account? SignIn here</a
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Global Message Modal -->
+      <div
+        class="modal fade"
+        id="messageModal"
+        tabindex="-1"
+        aria-labelledby="messageModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="messageModalLabel">Message</h5>
               <button
-                onclick="goToSelectionPage()"
-                class="button-main w-100 mb-24"
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="messageModalBody">
+              <!-- Message content will be injected here -->
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
               >
-                Login
+                Close
               </button>
-              <div class="text-center mb-24 or-login">Or Login Using</div>
-              <button class="social-button mb-24 w-100">
-                <img src="./../assets/images/google.png" alt="" />
-                Google
-              </button>
-              <div class="text-center or-login">
-                <a href="">Don’t have an account? Signup here</a>
-              </div>
             </div>
           </div>
         </div>
@@ -102,6 +420,7 @@
     <script src="./../assets/js/jquery.min.js"></script>
     <script src="./../assets/js/bootstrap.min.js"></script>
     <script src="./../renderer.js"></script>
+    <script src="./../renderer/auth.js"></script>
     <script>
       $(document).ready(function () {
         $("#login").modal("toggle");

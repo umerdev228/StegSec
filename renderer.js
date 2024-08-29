@@ -6,6 +6,8 @@
  * to expose Node.js functionality from the main process.
  */
 
+const BASE_URL = 'https://stegsecbackend.onrender.com/api';
+
 function goToSelectionPage() {
     document.getElementById('section-page').click()
 }
