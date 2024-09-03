@@ -63,7 +63,9 @@
               />
             </div>
 
-            <button class="button-main w-100 mb-24">Hide</button>
+            <button class="button-main w-100 mb-24" data-bs-dismiss="modal">
+              Hide
+            </button>
             <div class="modal-loader">
               <div class="loading"></div>
               <span>Please Wait</span>
@@ -88,7 +90,7 @@
               Select file you want to be cover of hidden file
             </div>
             <div class="file-wrapper mb-12">
-              <input type="file" />
+              <input type="file" name="cover_image" />
               <img src="./../assets/images/upload.png" alt="" />
               <div class="body-text text-center">Upload File here</div>
             </div>
@@ -96,8 +98,10 @@
             <label class="mb-8" for="">The Steg Operation</label>
             <div class="input-wrapper mb-16">
               <select name="" id="" class="input no-logo">
-                <option value="">Select option</option>
-                <option value="Hide Data in Image">Hide Data in Image</option>
+                <option value="0">Select Option</option>
+                <option value="extract_data_from_image">
+                  Extract data from image
+                </option>
               </select>
             </div>
             <label class="mb-8" for="">Password</label>
@@ -109,7 +113,9 @@
               />
             </div>
 
-            <button class="button-main w-100 mb-24">Hide</button>
+            <button class="button-main w-100 mb-24" data-bs-dismiss="modal">
+              Hide
+            </button>
           </div>
         </div>
       </div>
@@ -204,7 +210,7 @@
                     Select file you want to hide
                   </div>
                   <div class="file-wrapper mb-16">
-                    <input name="file" type="file" />
+                    <input name="file_to_hide" type="file" />
                     <img src="./../assets/images/file.png" alt="" />
                     <div class="body-text text-center">Select File</div>
                   </div>

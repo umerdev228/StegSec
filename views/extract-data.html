@@ -91,54 +91,106 @@
                   </div>
                   <div class="title-small text-center">Pro</div>
 
-                  <div class="title-small text-center">Select File</div>
-                  <div class="body-text color-white text-center mb-32">
-                    Select file you want to extract from
-                  </div>
-                  <div class="file-wrapper mb-16">
-                    <input name="file" type="file" />
-                    <img src="./../assets/images/file.png" alt="" />
-                    <div class="body-text text-center">Select File</div>
-                  </div>
-                  <label class="mb-8" for="">Password</label>
-                  <div class="input-wrapper mb-16">
-                    <input
-                      type="text"
-                      class="input no-logo"
-                      placeholder="Enter password here"
-                    />
-                  </div>
-                  <label class="mb-8" for="">The of Operation</label>
-                  <div class="input-wrapper mb-48">
-                    <select name="" id="" class="input no-logo">
-                      <option value="">Select</option>
+                  <form id="extractDataFromFileForm" method="POST">
+                    <div class="title-small text-center">Select File</div>
+                    <div class="body-text color-white text-center mb-32">
+                      Select file you want to extract from
+                    </div>
+                    <div class="file-wrapper mb-16">
+                      <input name="cover_image" type="file" required />
+                      <img src="./../assets/images/file.png" alt="" />
+                      <div class="body-text text-center">Select File</div>
+                    </div>
+                    <label class="mb-8" for="">Password</label>
+                    <div class="input-wrapper mb-16">
+                      <input
+                        type="password"
+                        name="password"
+                        required
+                        class="input no-logo"
+                        placeholder="Enter password here"
+                      />
+                    </div>
+                    <label class="mb-8" for="">The of Operation</label>
+                    <div class="input-wrapper mb-48">
+                      <select
+                        name="api_selection"
+                        id="api_selection"
+                        class="input no-logo"
+                      >
+                        <option value="0">Select</option>
 
-                      <option value="Extract text file from image">
-                        Extract text file from image
-                      </option>
-                      <option value="Extract PDF file from image">
-                        Extract PDF file from image
-                      </option>
-                      <option value="Extract Excel file from image">
-                        Extract Excel file from image
-                      </option>
-                      <option value="Extract word file from image">
-                        Extract word file from image
-                      </option>
-                      <option value="Extract powerpoint from image">
-                        Extract powerpoint from image
-                      </option>
-                    </select>
-                  </div>
-                  <button
+                        <option value="extract_data_from_image">
+                          Extract data from image
+                        </option>
+                        <option value="Extract text file from image">
+                          Extract text file from image
+                        </option>
+                        <option value="Extract PDF file from image">
+                          Extract PDF file from image
+                        </option>
+                        <option value="Extract Excel file from image">
+                          Extract Excel file from image
+                        </option>
+                        <option value="Extract word file from image">
+                          Extract word file from image
+                        </option>
+                        <option value="Extract powerpoint from image">
+                          Extract powerpoint from image
+                        </option>
+                      </select>
+                    </div>
+
+                    <!-- <button
                     class="button-main w-100"
                     data-bs-toggle="modal"
                     data-bs-target="#done-modal"
                   >
                     Extract
-                  </button>
+                  </button> -->
+
+                    <button class="button-main w-100">Extract</button>
+                  </form>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Global Message Modal -->
+      <div
+        class="modal fade"
+        id="messageModal"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dark modal-dialog-centered">
+          <div class="modal-content">
+            <div class="close" data-bs-dismiss="modal">
+              <img src="./../assets/images/close.png" alt="" />
+            </div>
+
+            <div class="modal-body">
+              <div class="done-logo">
+                <img
+                  src="./../assets/images/done.png"
+                  id="result-icon"
+                  alt=""
+                />
+              </div>
+              <div id="messageModalLabel" class="title-medium text-center">
+                Process Complete
+              </div>
+              <div
+                id="messageModalMessage"
+                class="body-text text-center color-white mb-32"
+              >
+                Profile Updated Successfully
+              </div>
+
+              <button data-bs-dismiss="modal" class="button-main w-100 mb-24">
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -146,6 +198,6 @@
     </div>
     <script src="./../assets/js/bootstrap.js"></script>
     <script src="./../renderer.js"></script>
-    <script src="./../renderer/auth.js"></script>
+    <script src="./../renderer/operation.js"></script>
   </body>
 </html>

@@ -99,7 +99,11 @@
                   Login
                 </button>
                 <div class="text-center mb-24 or-login">Or Login Using</div>
-                <button class="social-button mb-24 w-100">
+                <button
+                  type="button"
+                  id="googleSignInBtn"
+                  class="social-button mb-24 w-100"
+                >
                   <img src="./../assets/images/google.png" alt="" />
                   Google
                 </button>
@@ -386,29 +390,33 @@
         class="modal fade"
         id="messageModal"
         tabindex="-1"
-        aria-labelledby="messageModalLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dark modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="messageModalLabel">Message</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+            <div class="close" data-bs-dismiss="modal">
+              <img src="./../assets/images/close.png" alt="" />
             </div>
-            <div class="modal-body" id="messageModalBody">
-              <!-- Message content will be injected here -->
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
+
+            <div class="modal-body">
+              <div class="done-logo">
+                <img
+                  src="./../assets/images/done.png"
+                  id="result-icon"
+                  alt=""
+                />
+              </div>
+              <div id="messageModalLabel" class="title-medium text-center">
+                Process Complete
+              </div>
+              <div
+                id="messageModalMessage"
+                class="body-text text-center color-white mb-32"
               >
+                Profile Updated Successfully
+              </div>
+
+              <button data-bs-dismiss="modal" class="button-main w-100 mb-24">
                 Close
               </button>
             </div>

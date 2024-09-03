@@ -122,6 +122,39 @@
                           Update
                         </button>
                       </form>
+
+                      <form id="passwordUpdateForm" method="POST">
+                        <div class="title-20 text-center mb-16 mt-4">
+                          Password Change
+                        </div>
+
+                        <label for="oldpassword" class="mb-8"
+                          >Old Password</label
+                        >
+                        <div class="input-wrapper mb-16">
+                          <input
+                            type="password"
+                            name="oldpassword"
+                            id="oldpassword"
+                            class="input no-logo"
+                            placeholder=""
+                          />
+                        </div>
+
+                        <label for="password" class="mb-8">New Password</label>
+                        <div class="input-wrapper mb-16">
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="input no-logo"
+                            placeholder=""
+                          />
+                        </div>
+                        <button class="button-main w-100" type="submit">
+                          Update Password
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -186,16 +219,30 @@
               </div>
 
               <div class="modal-body">
-                <div class="subtitle">Done</div>
                 <div class="done-logo">
-                  <img src="./../assets/images/done.png" alt="" />
+                  <img
+                    src="./../assets/images/done.png"
+                    id="result-icon"
+                    alt=""
+                  />
                 </div>
-                <div class="title-medium text-center">Process Complete</div>
-                <div class="body-text text-center color-white mb-32">
+                <div id="messageModalLabel" class="title-medium text-center">
+                  Process Complete
+                </div>
+                <div
+                  id="messageModalMessage"
+                  class="body-text text-center color-white mb-32"
+                >
                   Profile Updated Successfully
                 </div>
 
-                <button class="button-main w-100 mb-24">Close</button>
+                <button
+                  onclick="closeModal()"
+                  data-bs-dismiss="modal"
+                  class="button-main w-100 mb-24"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>

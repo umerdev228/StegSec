@@ -998,3 +998,12 @@ a:hover {
 .border-12 {
     border-radius: 12px;
 }
+
+.image-wrapper {
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .image-wrapper input[type="radio"]:checked + img {
+    border: 2px solid #FFCB9B; /* Change to desired highlight color */
+  }

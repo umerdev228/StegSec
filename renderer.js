@@ -7,6 +7,7 @@
  */
 
 const BASE_URL = 'https://stegsecbackend.onrender.com/api';
+const STEG_URL = 'https://stegsecapp.onrender.com/api'
 
 function goToSelectionPage() {
     document.getElementById('section-page').click()
@@ -16,4 +17,8 @@ function goToHidePage() {
 }
 function goToExtractData() {
     window.location.href = "./extract-data.html";
+}
+function logout() {
+    localStorage.clear();
+    window.location.href = "./login.html";
 }

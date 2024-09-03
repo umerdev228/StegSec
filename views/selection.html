@@ -19,51 +19,74 @@
             </div>
 
             <div class="modal-body">
-              <div class="subtitle">Login</div>
+              <form id="hideFileInDefaultImageForm" method="POST">
+                <div class="subtitle">Login</div>
 
-              <div class="title17">Hide File</div>
-              <div class="body-text color-white mb4">
-                Select the file to be hidden
-              </div>
-              <div class="file-wrapper mb-12">
-                <input type="file" />
-                <img src="./../assets/images/upload.png" alt="" />
-                <div class="body-text text-center">Upload File here</div>
-              </div>
-              <div class="title17">Cover Photo</div>
-              <div class="body-text color-white mb-8">
-                Please select the cover image from the following images, or
-                upgrade to the pro version to use a custom file
-              </div>
-              <div class="file-images-wrapper mb-8">
-                <div class="image-wrapper">
-                  <img src="./../assets/images/img1.png" alt="" />
+                <div class="title17">Hide File</div>
+                <div class="body-text color-white mb4">
+                  Select the file to be hidden
                 </div>
-                <div class="image-wrapper">
-                  <img src="./../assets/images/img2.png" alt="" />
+                <div class="file-wrapper mb-12">
+                  <input
+                    type="file"
+                    name="file_to_hide"
+                    id="file_to_hide"
+                    required
+                  />
+                  <img src="./../assets/images/upload.png" alt="" />
+                  <div class="body-text text-center">Upload File here</div>
                 </div>
-              </div>
+                <div class="title17">Cover Photo</div>
+                <div class="body-text color-white mb-8">
+                  Please select the cover image from the following images, or
+                  upgrade to the pro version to use a custom file
+                </div>
+                <div class="file-images-wrapper mb-8">
+                  <label class="image-wrapper">
+                    <input
+                      checked
+                      type="radio"
+                      name="default_image"
+                      value="1"
+                      style="display: none"
+                    />
+                    <img src="./../assets/images/img1.png" alt="Image 1" />
+                  </label>
+                  <label class="image-wrapper">
+                    <input
+                      type="radio"
+                      name="default_image"
+                      value="2"
+                      style="display: none"
+                    />
+                    <img src="./../assets/images/img2.png" alt="Image 2" />
+                  </label>
+                </div>
 
-              <label class="mb-8" for="">The Steg Operation</label>
-              <div class="input-wrapper mb-16">
-                <input
-                  type="text"
-                  class="input no-logo"
-                  placeholder="Hide Data in Image"
-                />
-              </div>
-              <label class="mb-8" for="">Password</label>
-              <div class="input-wrapper">
-                <input
-                  type="text"
-                  class="input no-logo"
-                  placeholder="Enter password here"
-                />
-              </div>
+                <label class="mb-8" for="">The Steg Operation</label>
+                <div class="input-wrapper mb-16">
+                  <input
+                    type="text"
+                    class="input no-logo"
+                    placeholder="Hide Data in Image"
+                  />
+                </div>
+                <label form="password" class="mb-8" for="">Password</label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    name="password"
+                    id="password"
+                    class="input no-logo"
+                    placeholder="Enter password here"
+                    required
+                  />
+                </div>
 
-              <button onclick="goToHidePage()" class="button-main w-100 mb-24">
-                Hide
-              </button>
+                <button type="submit" class="button-main w-100 mb-24">
+                  Hide
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -117,7 +140,38 @@
       </div>
     </div>
 
+    <!-- Global Message Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dark modal-dialog-centered">
+        <div class="modal-content">
+          <div class="close" data-bs-dismiss="modal">
+            <img src="./../assets/images/close.png" alt="" />
+          </div>
+
+          <div class="modal-body">
+            <div class="done-logo">
+              <img src="./../assets/images/done.png" id="result-icon" alt="" />
+            </div>
+            <div id="messageModalLabel" class="title-medium text-center">
+              Process Complete
+            </div>
+            <div
+              id="messageModalMessage"
+              class="body-text text-center color-white mb-32"
+            >
+              Profile Updated Successfully
+            </div>
+
+            <button data-bs-dismiss="modal" class="button-main w-100 mb-24">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./../assets/js/bootstrap.js"></script>
     <script src="./../renderer.js"></script>
+    <script src="./../renderer/operation.js"></script>
   </body>
 </html>

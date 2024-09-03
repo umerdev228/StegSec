@@ -6,6 +6,9 @@
  *
  * https://www.electronjs.org/docs/latest/tutorial/sandbox
  */
+const { contextBridge, ipcRenderer } = require('electron');
+
+
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector, text) => {
     const element = document.getElementById(selector)
@@ -16,3 +19,9 @@ window.addEventListener('DOMContentLoaded', () => {
     replaceText(`${type}-version`, process.versions[type])
   }
 })
+
+
+// Expose a limited API to the renderer
+contextBridge.exposeInMainWorld('electron', {
+  googleOAuth: () => ipcRenderer.invoke('google-oauth'),
+});

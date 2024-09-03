@@ -6,14 +6,18 @@ function logout() {
 document.addEventListener("DOMContentLoaded", () => {
   // Helper function to show the modal with a message
   function showModal(title, message) {
-    const modalTitle = document.getElementById("messageModalLabel");
-    const modalBody = document.getElementById("messageModalBody");
-    modalTitle.textContent = title; // Set the modal title
-    modalBody.innerHTML = message; // Set the modal message
-    const messageModal = new bootstrap.Modal(
-      document.getElementById("messageModal")
-    ); // Initialize the Bootstrap modal
-    messageModal.show(); // Show the modal
+    if (title === 'Success') {
+      document.getElementById('result-icon').src = './../assets/images/done.png';
+    }
+    else {
+      document.getElementById('result-icon').src = './../assets/images/note.png';
+    }
+      const modalTitle = document.getElementById('messageModalLabel');
+      const modalBody = document.getElementById('messageModalMessage');
+      modalTitle.textContent = title; // Set the modal title
+      modalBody.innerHTML = message; // Set the modal message
+      const messageModal = new bootstrap.Modal(document.getElementById('messageModal')); // Initialize the Bootstrap modal
+      messageModal.show(); // Show the modal
   }
 
   if (document.getElementById("loginForm")) {
@@ -243,6 +247,52 @@ document.addEventListener("DOMContentLoaded", () => {
           .catch((error) => console.error("Error:", error));
       });
   }
+
+// Function to handle Google Sign-In
+async function googleSignIn() {
+  try {
+    // Use the exposed API to invoke the Google OAuth flow
+    const accessToken = await window.electron.googleOAuth();
+    console.log('Google OAuth Token:', accessToken);
+
+    // Send token to your backend for authentication
+    const loginData = {
+      email: "tryuddipan@gmail.com", // Example email, get from OAuth or user profile
+      id_token: accessToken,
+    };
+
+    fetch('https://stegsecbackend.onrender.com/api/login_with_google/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    })
+    .then(res => res.json())
+    .then(result => {
+      if (result.status) {
+        showModal('Success', 'Logged in successfully using Google!');
+        localStorage.setItem('token', result.token);
+        localStorage.setItem('data', JSON.stringify(result.data));
+      } else {
+        showModal('Error', result.message || 'Failed to log in using Google.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showModal('Error', 'An error occurred. Please try again.');
+    });
+
+  } catch (error) {
+    console.error('Google Sign-In Error:', error);
+    showModal('Error', 'Google Sign-In failed.');
+  }
+}
+
+// Bind the click event to your Google Sign-In button
+document.getElementById('googleSignInBtn').addEventListener('click', googleSignIn);
+  // Bind the click event to your Google Sign-In button
+  document.getElementById('googleSignInBtn').addEventListener('click', googleSignIn);
 });
 
 function changeModal() {

@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('node:path')
 
 function createWindow () {
@@ -42,3 +42,58 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
+// Handle OAuth flow
+ipcMain.handle('google-oauth', async () => {
+  return new Promise((resolve, reject) => {
+    const authWindow = new BrowserWindow({
+      width: 500,
+      height: 600,
+      show: true,
+      webPreferences: {
+        nodeIntegration: false,
+        contextIsolation: true,
+      },
+    });
+
+    const GOOGLE_CLIENT_ID = '1093906640655-sc8vdtfoe5611c2omet4uvjgmjdi6lup.apps.googleusercontent.com';
+
+    const authUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&scope=email profile&redirect_uri=http://localhost`;
+
+    authWindow.loadURL(authUrl);
+
+    // Listen for URL change events
+    authWindow.webContents.on('will-redirect', (event, newUrl) => {
+      if (newUrl.startsWith('http://localhost')) {
+        const rawToken = /access_token=([^&]*)/.exec(newUrl) || null;
+        const accessToken = rawToken && rawToken.length > 1 ? rawToken[1] : null;
+        const error = /\?error=(.+)$/.exec(newUrl);
+
+        if (accessToken) {
+          resolve(accessToken);
+        } else if (error) {
+          reject(new Error('OAuth Error: ' + error[1]));
+        }
+
+        authWindow.close();
+      }
+    });
+
+    authWindow.on('closed', () => {
+      reject(new Error('Auth window was closed by the user'));
+    });
+  });
+});
+
+
+// StegSec10ZEE92ze671209hik288juk81762iilk539e3ZS4EDdq213421123
+// 1093906640655-sc8vdtfoe5611c2omet4uvjgmjdi6lup.apps.googleusercontent.com
+// const environment = {
+//   BASE_URL: 'https://stegsecbackend.onrender.com/api/',
+//   STEG_URL: 'https://stegsecapp.onrender.com/api/',
+//   STEG_API_KEY: 'StegSec10ZEE92ze671209hik288juk81762iilk539e3ZS4EDdq213421123',
+//   GOOGLE_KEY:
+//     '1093906640655-sc8vdtfoe5611c2omet4uvjgmjdi6lup.apps.googleusercontent.com',
+// };
+
